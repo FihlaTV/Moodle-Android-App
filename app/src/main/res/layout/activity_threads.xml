@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    tools:context="com.cyberthieves.trialapp.Threads"
+    android:background="@drawable/side_nav_bar"
+
+
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:visibility="visible" />
+
+    </android.support.design.widget.AppBarLayout>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/editText"
+        android:background="@drawable/back"
+        android:hint="  Title"
+        android:layout_above="@+id/editText2"
+        android:layout_alignParentStart="true"
+
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Post a new thread"
+        android:id="@+id/textView"
+        android:gravity="left"
+        android:layout_above="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:lines="13"
+        android:background="@drawable/back"
+        android:hint="  Description"
+        android:gravity="top"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textIsSelectable="false" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabThread"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="52dp"
+        app:backgroundTint="#00cc00"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bb" />
+
+</RelativeLayout>

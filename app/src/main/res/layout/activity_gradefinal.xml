@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"     >
+
+    <HorizontalScrollView
+        android:id="@+id/pscroll"
+        android:scrollbars="horizontal"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:fillViewport="true"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+        <LinearLayout android:orientation="horizontal" android:id="@+id/LinearLayout01"       android:scrollbars="horizontal" android:layout_width="fill_parent"    android:layout_height="wrap_content">
+            <ImageButton android:id="@+id/P1"  android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageButton android:id="@+id/P2"  android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>>
+        </HorizontalScrollView>
+    </RelativeLayout>
