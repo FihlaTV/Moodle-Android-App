@@ -147,7 +147,7 @@ public class LoginActivity extends Activity  {
                                 login.putExtra("email",email);
                                 login.putExtra("username",username);
                                 login.putExtra("password",password);
-                                login.putExtra("id",String.valueOf(id));
+                                login.putExtra("id",id);
                                 if(type==0)
                                 {
                                     login.putExtra("type","0");

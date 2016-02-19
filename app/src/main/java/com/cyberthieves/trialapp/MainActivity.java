@@ -36,16 +36,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ProgressDialog pDialog;
-    String  entrynum="";
-    String email="";
-    String  password="";
-    String  type="";
-    String  id="";
-
-    TextView user_name;
-    TextView user_entry;
-    TextView user_email;
-    TextView user_type;
+    String  entrynum;
 
 
     @Override
@@ -80,15 +71,15 @@ public class MainActivity extends AppCompatActivity
 
 
         entrynum=getIntent().getExtras().getString("entry");
-        email=getIntent().getExtras().getString("email");
-        password=getIntent().getExtras().getString("password");
-        type=getIntent().getExtras().getString("type");
-        id=getIntent().getExtras().getString("id");
+        String  email=getIntent().getExtras().getString("email");
+        String  password=getIntent().getExtras().getString("password");
+        String  type=getIntent().getExtras().getString("type");
+        String  id=getIntent().getExtras().getString("id");
 
-        user_name=(TextView)(findViewById(R.id.name));
-        user_entry=(TextView)(findViewById(R.id.entry));
-        user_email=(TextView)(findViewById(R.id.email));
-        user_type=(TextView)(findViewById(R.id.type));
+        TextView user_name=(TextView)(findViewById(R.id.name));
+        TextView user_entry=(TextView)(findViewById(R.id.entry));
+        TextView user_email=(TextView)(findViewById(R.id.email));
+        TextView user_type=(TextView)(findViewById(R.id.type));
 
 
         if(type.equals("0"))
@@ -149,8 +140,7 @@ public class MainActivity extends AppCompatActivity
 
          if (id == R.id.nav_gallery) {
 
-             Intent opengrades=new Intent(this,grading.class);
-             opengrades.putExtra("pass",password);
+             Intent opengrades=new Intent(this,Grades.class);
              opengrades.putExtra("entry",entrynum);
 
 

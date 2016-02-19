@@ -54,10 +54,7 @@
             android:label="@string/title_activity_grades" />
         <activity
             android:name=".grading"
-            android:label="@string/title_activity_grading" />
-        <activity
-            android:name=".gradefinal"
-            android:label="@string/title_activity_gradefinal"></activity>
+            android:label="@string/title_activity_grading"></activity>
     </application>
 
 </manifest>
