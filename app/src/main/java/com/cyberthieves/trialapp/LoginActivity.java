@@ -20,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -52,15 +53,11 @@ public class LoginActivity extends Activity  {
     private Button mlogIn;
     private TextView mforgotPasswd;
     private ProgressDialog pDialog;
-
-    private SharedPreferences _preferences;
-
+    private Toast toast =null;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        _preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         pDialog = new ProgressDialog(this);
 
@@ -118,7 +115,8 @@ public class LoginActivity extends Activity  {
 
         showpDialog();
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://10.208.20.32:1805/default/login.json?userid=" + userId + "&password=" + passwd;
+        //String url = "http://10.208.20.32:1805/default/login.json?userid=" + userId + "&password=" + passwd;
+        String url = getString(R.string.domain)+"/default/login.json?userid=" + userId + "&password=" + passwd;
         Log.d(TAG, url);
         StringRequest myReq = new StringRequest(Request.Method.GET,
                 url,
@@ -156,11 +154,8 @@ public class LoginActivity extends Activity  {
                                 {
                                     login.putExtra("type","1");
                                 }
-
-
-
-
                                 startActivity(login);
+                                finish();
                             }
                             else{
                                 AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
@@ -188,7 +183,7 @@ public class LoginActivity extends Activity  {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
                 // hide the progress dialog
                 cancelPDialog();
-                Snackbar.make(view1, "No Internet Connection!", Snackbar.LENGTH_LONG)
+                Snackbar.make(view1, "Unable to Access Server!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -260,7 +255,19 @@ public class LoginActivity extends Activity  {
 
     private void cancelPDialog() {
         if (pDialog.isShowing())
-            pDialog.hide();
+            pDialog.cancel();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(toast == null || toast.getView().getWindowVisibility() != View.VISIBLE) {
+            toast = Toast.makeText(getApplicationContext(), "Press again to exit", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else {
+            toast.cancel();
+            super.onBackPressed();
+        }
     }
 }
 

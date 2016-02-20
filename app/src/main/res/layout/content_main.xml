@@ -12,20 +12,6 @@
     tools:context="com.cyberthieves.trialapp.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="MOODLE PLUS"
-        android:id="@+id/textView5"
-        android:layout_marginTop="95dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="40dp"
-        android:textIsSelectable="false" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,6 +24,20 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/entry"
         android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MOODLE PLUS"
+        android:id="@+id/head"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:textIsSelectable="false"
+        android:layout_above="@id/name"
+        android:gravity="bottom" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,6 +70,22 @@
         android:width="200dp"
         android:layout_marginRight="0dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignStart="@+id/head"
+        android:layout_alignEnd="@+id/head" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/notifications"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:id="@+id/notifiList"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
 </RelativeLayout>

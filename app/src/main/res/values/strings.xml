@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Trial app</string>
+    <string name="domain">http://10.208.20.32:1805</string>
+    <string name="notification_string">Notifications</string>
+    <string name="app_name">Moodle App</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,7 +12,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_login">Sign in</string>
-
     <!-- Strings related to login -->
     <string name="prompt_email">Keybros Id</string>
     <string name="prompt_password">Password</string>
@@ -44,9 +45,12 @@
         <item>Moodle Plus App</item>
     </string-array>
 
-    <string name="title_activity_assignments">Assignments</string>
-    <string name="title_activity_tab">TabActivity</string>
     <string name="title_activity_submission">Submission</string>
-    <string name="title_activity_grades">Grades</string>
-    <string name="title_activity_grading">grading</string>
+
+    <string name="title_course_details">Course Details</string>
+    <string name="assignments">ASSIGNMENTS</string>
+    <string name="overview">OVERVIEW</string>
+    <string name="resources">RESOURCES</string>
+    <string name="threads">THREADS</string>
+    <string name="grades">GRADES</string>
 </resources>

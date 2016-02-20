@@ -35,26 +35,16 @@
             android:name=".Content"
             android:label="@string/title_activity_content" />
         <activity
-            android:name=".Threads"
-            android:label="@string/title_activity_threads" />
-        <activity
-            android:name=".UploadResource"
-            android:label="@string/title_activity_upload_resource" />
-        <activity
-            android:name=".Overview"
-            android:label="@string/title_activity_overview" />
-        <activity
-            android:name=".Assignments"
-            android:label="@string/title_activity_assignments" />
-        <activity
             android:name=".Submission"
             android:label="@string/title_activity_submission" />
         <activity
-            android:name=".Grades"
-            android:label="@string/title_activity_grades" />
-        <activity
-            android:name=".grading"
-            android:label="@string/title_activity_grading"></activity>
+            android:name=".CourseDetails"
+            android:label="@string/title_course_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

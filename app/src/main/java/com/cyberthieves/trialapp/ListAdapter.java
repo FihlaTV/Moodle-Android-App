@@ -1,24 +1,13 @@
 package com.cyberthieves.trialapp;
 
-/**
- * Created by sdas1547 on 21-02-2016.
- */
 import android.content.Context;
-
 import android.view.LayoutInflater;
-
 import android.view.View;
-
 import android.view.ViewGroup;
-
 import android.widget.ArrayAdapter;
-
 import android.widget.TextView;
-
 import org.json.JSONException;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class ListAdapter extends ArrayAdapter<JSONObject> {
@@ -29,6 +18,7 @@ public class ListAdapter extends ArrayAdapter<JSONObject> {
 
     public ListAdapter(Context context, int num, int id, ArrayList<JSONObject> notification){
         super(context, num, id, notification);
+        this.num = num;
         this.context = context;
         this.notification = notification;
     }
@@ -42,11 +32,11 @@ public class ListAdapter extends ArrayAdapter<JSONObject> {
 
         try {
 
-            serialno.setText(notification.get(position).getString("slNo"));
+            serialno.setText(notification.get(position).getString("s_no"));
 
-            notific.setText(notification.get(position).getString("notification"));
+            notific.setText(notification.get(position).getString("description"));
 
-            time.setText(notification.get(position).getString("time"));
+            time.setText(notification.get(position).getString("created_at"));
 
 
 
