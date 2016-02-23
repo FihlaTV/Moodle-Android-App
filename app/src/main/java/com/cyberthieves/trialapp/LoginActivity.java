@@ -12,12 +12,15 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,6 +95,20 @@ public class LoginActivity extends Activity  {
         mlogIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 proceed(view);
+            }
+        });
+
+
+        CheckBox checkbox=(CheckBox)findViewById(R.id.pass_show);
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    mPassword.setInputType(129);
+                    //129 is the input type set when setting android:inputType:textPassword
+                }
             }
         });
 
