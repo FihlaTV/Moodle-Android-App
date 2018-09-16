@@ -11,22 +11,90 @@
 \maketitle
 
 \section{User Interface}
-
-
+\begin{itemize}
+    \item \textbf{\large Screens visible to the user:}
+    \bigskip
+    \begin{figure}[h]
+    \centering
+    \begin{minipage}[b]{0.3\linewidth}
+    \includegraphics[scale=0.2]{SplashScreen} 
+    \caption*{Splash Screen}
+    \label{fig:minipage1}
+    \end{minipage}
+    \quad
+    \begin{minipage}[b]{0.3\linewidth}
+    \includegraphics[scale=0.2]{LoginScreen} 
+    \caption*{Login Screen}
+    \label{fig:minipage2}
+    \end{minipage}
+    \quad
+    \begin{minipage}[b]{0.3\linewidth}
+    \includegraphics[scale=0.2]{OverviewPage} 
+    \caption*{Home Page}
+    \label{fig:minipage2}
+    \end{minipage}
+    \end{figure}
     
     
     
-   
+    \newpage
     \begin{itemize}
+    \item \textbf{Splash Screen:} The app starts with a splash screen which displays the logo of Moodle App . The next activity can be opened after 4 seconds. It also displays a welcome toast greeting the user.
     \item \textbf{Login Page:} The app starts with the introduction page which is basically a splash screen. It displays the logo of our Moodle app.It automatically closes in a few moments and starts the LoginActivity Class. The LoginActivity page provides an interface for users to enter their credentials to log in to the app. The two text fields represent the user-id and password to be entered. Text-watcher is implemented on both the fields. Initially both fields contain placeholders of name and password and their respective symbols. When we start typing into the fields the Text-watcher comes into play and the placeholder fly off the area to make space for typing. Upon pressing the login button it checks if any of the text fields are empty. If any one of them is empty then it reports an error to supply valid username and password. If the credentials are valid then a Volley request is generated and the details are sent to the server for verification. The response is a JSON object containing information of success of the login attempt. If the login was successful then the boolean value indicates it and the other data items represents the various details of the userlike user name, email, password, id etc. This set of information is sent to the activity containing the home page.The Home Page opens.
-    \item \textbf{Home Page:} This is the second main activity of our app. It contains a screen showing the important details of the user. It also indicates if the person logging into the app is a student or a professor. This is determined by the the type number sent from the login activity. If the type is 0 then it is a student login page and vice versa, the data on the screen adjusts itself accordingly.
-    \item \textbf{Navigation Bar:} This screen is the central navigation window and provides access to all the menu items. The top fragment contains a field to place the image of the respective user. Below it the name of the user is displayed for recognition. Below it is the link to navigate to the various parts of the app and expand its functionalities. The first group contains options to navigate to Overview, Grades and Notifications. They lead to their respective pages. Another group contains a list of courses the person is in involved in, be it a student or a Professor. The individual courses provide access to the details of that particular course. It consists of the grades of the course, the assignments related to it etc.
+    \item \textbf{Home Page:} This Page allows us to enter the details of first team member, then validates the data entered and proceeds to second member details page if data is valid.
+    \end{itemize}
+    
+    \begin{figure}[h]
+    \centering
+    \begin{minipage}[b]{0.32\linewidth}
+    \includegraphics[scale=0.2]{NavigationMenu} 
+    \caption*{Navigation Menu}
+    \label{fig:minipage1}
+    \end{minipage}
+    \quad
+    \begin{minipage}[b]{0.3\linewidth}
+    \includegraphics[scale=0.2]{Grades} 
+    \caption*{Grades Page}
+    \label{fig:minipage2}
+    \end{minipage}
+    \quad
+    \begin{minipage}[b]{0.3\linewidth}
+    \includegraphics[scale=0.2]{Notifications} 
+    \caption*{Notifications Page}
+    \label{fig:minipage2}
+    \end{minipage}
+    \end{figure}
+    \begin{itemize}
+    \newpage \item \textbf{Navigation Menu:} This screen is the central navigation window and provides access to all the menu items. The top fragment contains a field to place the image of the respective user. Below it the name of the user is displayed for recognition. Below it is the link to navigate to the various parts of the app and expand its functionalities. The first group contains options to navigate to Overview, Grades and Notifications. They lead to their respective pages. Another group contains a list of courses the person is in involved in, be it a student or a Professor. The individual courses provide access to the details of that particular course. It consists of the grades of the course, the assignments related to it etc.
     In the bottom a logout link is provided to log out of the app. Here the cookie will reset its value until a new person successfully logs into the app.
+    \item \textbf{Grades Page:} 
+    In the navigation bar we have a menu item called “Grades” which, on click, displays the overall grades till now in all the courses. The Grades fragment displays the course Name, Assignment number, Total Marks, Weights of a particular course. This task has been implemented by sending a request to "domain/default/grades.json" API which sends a JSON Objects consisting all the grades details of a particular assignment.
+    \item \textbf{Notifications Page:} 
+    Notification menu item in the Navigation Menu, on click, displays all the notifications related to that particular user, which can be of any one of the course he is registered like it will display a new notification if someone posts a new thread. It also displays the date and time of posting of that thread along with the name of the user who posted it. This task has been implemented by sending a request to "domain/default/notifications.json" API which sends a JSON Object consisting of all the details of notifications.
+    \end{itemize}
+    
+    \begin{figure}[h]
+    \centering
+    \begin{minipage}[b]{0.32\linewidth}
+    \includegraphics[scale=0.2]{CourseDetails} 
+    \caption*{Course Details Page}
+    \label{fig:minipage1}
+    \end{minipage}
+    \end{figure}
+    
+    \begin{itemize}
+    \item \textbf{Course Details Page:}  On clicking on any particular course displayed in the navigation window, i.e. the courses user is registered for the particular semester, it starts a new activity consisting of various details of that particular course. It consists of 5 tabs/pages:
+        \begin{itemize}
+           \item \textbf{Overview} It displays general details about that particular course as received from the API.
+           \item \textbf{Assignments}: This tab displays the current assignments which are due or displays “No Assignments. Yay!!” if there are no upcoming assignments.
+           \item \textbf{Resources}: It allows the user to upload a resource/file to his/her account. But we don't have any API for uploading so it is just a static page.
+           \item \textbf{Threads}: This tab allows a user to post a new thread related  course and also allows the end user to view all the threads posted by other users related to that course.
+           \item \textbf{Grades}: This is the last tab related to a particular course whose functionality is similar to the “Grades” but the only difference is that it displays grades of only that particular course.
+       \end{itemize}
     \end{itemize}
     
     
-    
-    \begin{itemize}
+
     
 
 \item \textbf{\large Animations, buttons (enabled/disabled under what conditions)}
@@ -60,7 +128,6 @@ The app starts with a splash screen showing front page of the app. The next acti
 		\item 
 		Validate Details: In validation process we have generated a valid pattern for the Entry Numbers using java regular expression and matching the pattern of this with the user.
 	\end{itemize}
-\item Methods for network communication[1].
 \end{itemize}
 
 The code for the project is being maintained in this repository: {\em https://github.com/masterkapilkumar/Moodle-Android-App}.
@@ -68,6 +135,7 @@ The code for the project is being maintained in this repository: {\em https://gi
 
 \section{References}
 [1] http://developer.android.com/training/volley/index.html \\
+http://stackoverflow.com/questions/16680701/using-cookies-with-android-volley-library \\
 http://developer.android.com \\
 http://stackoverflow.com/ \\
 http://stackexchange.com/ \\
