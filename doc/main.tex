@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[justification=centering,singlelinecheck=false]{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+
+\title{COP290: Moodle App}
+\author{Abhijeet Anand (2014CS10202) \\ Kapil Kumar (2014CS50736) \\ Sourav Das (2014CS10258) }
+
+\begin{document}
+\maketitle
+
+\section{User Interface}
+
+
+    
+    
+    
+   
+    \begin{itemize}
+    \item \textbf{Login Page:} The app starts with the introduction page which is basically a splash screen. It displays the logo of our Moodle app.It automatically closes in a few moments and starts the LoginActivity Class. The LoginActivity page provides an interface for users to enter their credentials to log in to the app. The two text fields represent the user-id and password to be entered. Text-watcher is implemented on both the fields. Initially both fields contain placeholders of name and password and their respective symbols. When we start typing into the fields the Text-watcher comes into play and the placeholder fly off the area to make space for typing. Upon pressing the login button it checks if any of the text fields are empty. If any one of them is empty then it reports an error to supply valid username and password. If the credentials are valid then a Volley request is generated and the details are sent to the server for verification. The response is a JSON object containing information of success of the login attempt. If the login was successful then the boolean value indicates it and the other data items represents the various details of the userlike user name, email, password, id etc. This set of information is sent to the activity containing the home page.The Home Page opens.
+    \item \textbf{Home Page:} This is the second main activity of our app. It contains a screen showing the important details of the user. It also indicates if the person logging into the app is a student or a professor. This is determined by the the type number sent from the login activity. If the type is 0 then it is a student login page and vice versa, the data on the screen adjusts itself accordingly.
+    \item \textbf{Navigation Bar:} This screen is the central navigation window and provides access to all the menu items. The top fragment contains a field to place the image of the respective user. Below it the name of the user is displayed for recognition. Below it is the link to navigate to the various parts of the app and expand its functionalities. The first group contains options to navigate to Overview, Grades and Notifications. They lead to their respective pages. Another group contains a list of courses the person is in involved in, be it a student or a Professor. The individual courses provide access to the details of that particular course. It consists of the grades of the course, the assignments related to it etc.
+    In the bottom a logout link is provided to log out of the app. Here the cookie will reset its value until a new person successfully logs into the app.
+    \end{itemize}
+    
+    
+    
+    \begin{itemize}
+    
+
+\item \textbf{\large Animations, buttons (enabled/disabled under what conditions)}
+    \begin{itemize}
+    
+    \item 
+        Animations begin with the creation of the app. The splash screen provides a smooth transition to the Login Page. Animations are activated whenever a new activity is started, The login button is disbled unless a legitimate entry is placed in the placeholders.The navigation bar is animated and it sweeps  out whenever the user swipes around the corner and drags it outwards. The navigation window also pops out when the button on the menu bar is clicked. Animations are also activated when the user presses the back button.
+    \item 
+       The login button also implements a TextWatcher and shows a transition of the placeholder with an animation.
+    \end{itemize}
+\item \textbf{\large Actions performed when a user enters information, presses a button/icon etc.}
+    \begin{itemize}
+    
+    \item 
+        When the user clicks on the name or entry number field, then the placeholder text floats upward and the entered text is displayed below it.
+    \item 
+        When the user presses "Log In" button on any page, our app first validates the data. It proceeds to next page only if the data entered is valid otherwise it displays a red coloured error message below the wrong entered data.
+    \end{itemize}
+    
+\end{itemize}
+
+\section{Implementation Details}
+
+\begin{itemize}
+\item \textbf{Organization of user information:} Organisation of user information
+The app starts with a splash screen showing front page of the app. The next activity is the login activity containing fields to enter information into it. The information is verified and the app proceeds according to whether the credentials are correct or not. The next page is the home page containing details and implementation of the navigation bar. 
+
+    
+\item Methods to verify the user information:
+	\begin{itemize}
+		\item 
+		Validate Details: In validation process we have generated a valid pattern for the Entry Numbers using java regular expression and matching the pattern of this with the user.
+	\end{itemize}
+\item Methods for network communication[1].
+\end{itemize}
+
+The code for the project is being maintained in this repository: {\em https://github.com/masterkapilkumar/Moodle-Android-App}.
+
+
+\section{References}
+[1] http://developer.android.com/training/volley/index.html \\
+http://developer.android.com \\
+http://stackoverflow.com/ \\
+http://stackexchange.com/ \\
+https://www.sharelatex.com/ \\
+https://en.wikipedia.org/wiki/ \\
+http://youtube.com
+
+\end{document}
